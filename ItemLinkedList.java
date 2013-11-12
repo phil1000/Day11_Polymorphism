@@ -1,9 +1,9 @@
-public class ItemLinkedList<T> implements DoubleLinkedList<T> {
+public class ItemLinkedList<L extends Node> implements DoubleLinkedList<L extends Node> {
 
-	private T startofList=null;
-	private T endofList=null;
+	private L startofList=null;
+	private L endofList=null;
 	
-	public void addItem(T newItem) {
+	public void addItem(L newItem) {
 		if (startofList==null) {
 			startofList=newItem;
 		} else {
@@ -14,7 +14,7 @@ public class ItemLinkedList<T> implements DoubleLinkedList<T> {
 	}
 	
 	public void printListfromStart() {
-		T listIterator = startofList;
+		L listIterator = startofList;
 		while (listIterator!=null) {
 			System.out.println(listIterator.getValue());
 			listIterator=listIterator.getNext();
@@ -22,22 +22,22 @@ public class ItemLinkedList<T> implements DoubleLinkedList<T> {
 	}
 	
 	public void printListfromEnd() {
-		T listIterator = endofList;
+		L listIterator = endofList;
 		while (listIterator!=null) {
 			System.out.println(listIterator.getValue());
 			listIterator=listIterator.getPrior();
 		}
 	}
 	
-	public T findItem(int value) {
+	/*public L findItem(int value) {
 		return findItem((double) value);
 	}
 	
-	public T findItem(double value) {
+	public L findItem(V value) {
 		// to be honest, don't really need this method and could just delete based on the int value
 		// but have it just to show I can find something
-		T itemToReturn=null;
-		T listIterator = startofList;
+		L itemToReturn=null;
+		L listIterator = startofList;
 		
 		while (listIterator!=null) {
 			if (value==listIterator.getValue()) {
@@ -48,9 +48,9 @@ public class ItemLinkedList<T> implements DoubleLinkedList<T> {
 		}
 		
 		return itemToReturn;
-	}
+	} */
 
-	public void deleteItem(T itemToDelete) {
+	public void deleteItem(L itemToDelete) {
 		
 		if (startofList.getValue()==itemToDelete.getValue()) {
 			// we want to delete first item in the list;
@@ -59,7 +59,7 @@ public class ItemLinkedList<T> implements DoubleLinkedList<T> {
 			return;
 		}
 		
-		T listIterator = startofList;
+		L listIterator = startofList;
 		
 		while (listIterator.getNext()!=null) {
 			if (intToDelete.getValue()==listIterator.getNext().getValue()) {

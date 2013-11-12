@@ -1,7 +1,7 @@
-public interface DoubleLinkedList<T> {
-	void addItem(T newItem);
+public interface DoubleLinkedList<L extends Node> {
+	void addItem(L newItem);
 	void printListfromStart();
 	void printListfromEnd();
-	T findItem(double value);
-	void deleteItem(T itemToDelete);
+	//L findItem(V value);
+	void deleteItem(L itemToDelete);
 }
